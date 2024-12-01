@@ -5,11 +5,14 @@
 boolean inMenu = true;
 boolean inPlay = false;
 boolean gameOver = false;
+GridManager GM = new GridManager();
 PImage menuBackground;
+
 
 void setup() {
  size(400,400);
  imageMode(CENTER);
+ rectMode(CENTER);
  menuBackground = loadImage("MainMenu.jpg");
 }
 
@@ -17,6 +20,9 @@ void draw() {
   background(255);
   if(inMenu){
    displayMenu(); 
+  }
+  if (inPlay) {
+   GM.displayGrid(); 
   }
 }
 
