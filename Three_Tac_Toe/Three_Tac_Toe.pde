@@ -1,5 +1,5 @@
 /*credits
- Main menu background image by InkImagine: https://www.deviantart.com/inkimagine/art/Pixel-Art-Landscape-1026346241
+ Main menu and game over background image by InkImagine: https://www.deviantart.com/inkimagine/art/Pixel-Art-Landscape-1026346241
  */
 
 boolean inMenu = true;
