@@ -33,6 +33,7 @@ void draw() {
   if (inPlay) {
     GM.displayColorGrid();
     GM.displayPlayingGrid();
+    image(tokenList[TM.turn-1],mouseX, mouseY);
   }
 }
 

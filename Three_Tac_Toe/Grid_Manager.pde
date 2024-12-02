@@ -17,7 +17,7 @@ class GridManager {
   void displayColorGrid() {
     for (int x=0; x<10; x++) {
       for (int y=0; y<10; y++) {
-         perlinC +=0.00001;
+         perlinC +=0.0001;
          fill(100,50,255-255*noise(perlinC+noise(x)+noise(y)));
          rect(40*x + 20, 40*y + 20, 40, 40);
       }
