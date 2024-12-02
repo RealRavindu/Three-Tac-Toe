@@ -7,15 +7,17 @@ class TurnManager {
   }
 
   void nextTurn() {
-    if (turn ==3) {
-      round++;
-      if(round ==27){
-       inPlay = false;
-       gameOver = true;
+    if (clickEnabled) {
+      if (turn ==3) {
+        round++;
+        if (round ==27) {
+          inPlay = false;
+          gameOver = true;
+        }
+        turn =1;
+      } else {
+        turn++;
       }
-      turn =1;
-    } else {
-      turn++;
     }
   }
 }

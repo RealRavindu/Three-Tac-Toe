@@ -5,9 +5,11 @@
 boolean inMenu = true;
 boolean inPlay = false;
 boolean gameOver = false;
+boolean clickEnabled = true;
 GridManager GM = new GridManager();
 TurnManager TM = new TurnManager();
 ScoreManager SM = new ScoreManager();
+Strikes strike;
 PImage menuBackground;
 PImage gameOverBackground;
 PImage[] tokenList;
@@ -36,6 +38,9 @@ void draw() {
     GM.displayColorGrid();
     GM.displayPlayingGrid();
     image(tokenList[TM.turn-1],mouseX, mouseY);
+    if(!clickEnabled){
+      SM.strike.drawStrike();
+    }
   }
   if (gameOver) {
    displayGameOver(); 
@@ -61,7 +66,7 @@ void mousePressed() {
     startGame();
     inPlay = true;
   }
-  if (inPlay) {
+  if (inPlay && clickEnabled) {
     for (Tiles t : GM.tileList) {
       if (t.isMouseHovering() && t.type ==0) {
         println("tile clicked");
@@ -71,6 +76,7 @@ void mousePressed() {
         TM.nextTurn();
       }
     }
+    SM.checkStrikes();
   }
   if (mouseX >30.5 && mouseX <370.5 && mouseY > 275.5 && mouseY < 365.5 &&   gameOver){
     gameOver = false;

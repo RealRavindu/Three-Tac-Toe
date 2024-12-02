@@ -1,10 +1,12 @@
 class Tiles {
   PVector coordinates;
   int type;
+  int TN;
 
-  Tiles(int tempType, PVector tempCoordinates) {
+  Tiles(int tempType, PVector tempCoordinates, int tempTN) {
     coordinates = tempCoordinates;
     type = tempType;
+    TN = tempTN;
   }
 
   void displayTile() {
