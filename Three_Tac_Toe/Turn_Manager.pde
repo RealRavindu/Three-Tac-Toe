@@ -9,7 +9,7 @@ class TurnManager {
   void nextTurn() {
     if (turn ==3) {
       round++;
-      if(round ==6){
+      if(round ==27){
        inPlay = false;
        gameOver = true;
       }
