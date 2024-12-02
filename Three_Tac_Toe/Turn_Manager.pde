@@ -2,12 +2,12 @@ class TurnManager {
 
   int turn;
   TurnManager() {
-    turn = 0;
+    turn = 1;
   }
 
   void nextTurn() {
-    if (turn ==2) {
-      turn =0;
+    if (turn ==3) {
+      turn =1;
     } else {
       turn++;
     }

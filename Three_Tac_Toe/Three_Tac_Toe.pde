@@ -9,13 +9,20 @@ GridManager GM = new GridManager();
 TurnManager TM = new TurnManager();
 ScoreManager SM = new ScoreManager();
 PImage menuBackground;
+PImage[] tokenList;
 
 
 void setup() {
   size(400, 400);
+  frameRate(60);
   imageMode(CENTER);
   rectMode(CENTER);
   menuBackground = loadImage("MainMenu.jpg");
+  tokenList = new PImage[3];
+  for (int i=0; i<3; i++) {
+    tokenList[i] = loadImage("player token " + (i+1) + ".png");
+    println("image added " + tokenList[i]);
+  }
 }
 
 void draw() {
@@ -24,7 +31,8 @@ void draw() {
     displayMenu();
   }
   if (inPlay) {
-    GM.displayGrid();
+    GM.displayColorGrid();
+    GM.displayPlayingGrid();
   }
 }
 
@@ -46,9 +54,11 @@ void mousePressed() {
   }
   if (inPlay) {
     for (Tiles t : GM.tileList) {
-      if (t.isMouseHovering()) {
+      if (t.isMouseHovering() && t.type ==0) {
         println("tile clicked");
+        println("turn: " + TM.turn);
         t.type = TM.turn;
+        println("tile's type: " + t.type);
         TM.nextTurn();
       }
     }

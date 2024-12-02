@@ -14,11 +14,19 @@ class GridManager {
     }
   }
 
-  void displayGrid() {
-    for (Tiles t : tileList) {
-      perlinC += 0.01;
-      fill(100,0,map(noise(perlinC),0,1,0,255));
-      t.displayTile();
+  void displayColorGrid() {
+    for (int x=0; x<10; x++) {
+      for (int y=0; y<10; y++) {
+         perlinC +=0.00001;
+         fill(100,50,255-255*noise(perlinC+noise(x)+noise(y)));
+         rect(40*x + 20, 40*y + 20, 40, 40);
+      }
     }
+  }
+  
+  void displayPlayingGrid() {
+   for (Tiles t: tileList){
+    t.displayTile(); 
+   }
   }
 }
