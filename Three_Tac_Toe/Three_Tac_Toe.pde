@@ -9,6 +9,7 @@ GridManager GM = new GridManager();
 TurnManager TM = new TurnManager();
 ScoreManager SM = new ScoreManager();
 PImage menuBackground;
+PImage gameOverBackground;
 PImage[] tokenList;
 
 
@@ -18,6 +19,7 @@ void setup() {
   imageMode(CENTER);
   rectMode(CENTER);
   menuBackground = loadImage("MainMenu.jpg");
+  gameOverBackground = loadImage("GameOver.png");
   tokenList = new PImage[3];
   for (int i=0; i<3; i++) {
     tokenList[i] = loadImage("player token " + (i+1) + ".png");
@@ -35,6 +37,9 @@ void draw() {
     GM.displayPlayingGrid();
     image(tokenList[TM.turn-1],mouseX, mouseY);
   }
+  if (gameOver) {
+   displayGameOver(); 
+  }
 }
 
 void startGame() {
@@ -46,12 +51,15 @@ void startGame() {
 void displayMenu() {
   image(menuBackground, width/2, height/2);
 }
+void displayGameOver() {
+ image(gameOverBackground, width/2, height/2); 
+}
 
 void mousePressed() {
   if (mouseX > 75 && mouseX<325 && mouseY>225 && mouseY<315 && inMenu) { //play button constraints
     inMenu = false;
+    startGame();
     inPlay = true;
-    println(inPlay);
   }
   if (inPlay) {
     for (Tiles t : GM.tileList) {
@@ -63,5 +71,9 @@ void mousePressed() {
         TM.nextTurn();
       }
     }
+  }
+  if (mouseX >30.5 && mouseX <370.5 && mouseY > 275.5 && mouseY < 365.5 &&   gameOver){
+    gameOver = false;
+    inMenu = true;
   }
 }
