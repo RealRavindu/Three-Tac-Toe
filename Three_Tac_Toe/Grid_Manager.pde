@@ -18,8 +18,8 @@ class GridManager {
   void displayColorGrid() {
     strokeWeight(3);
     stroke(0);
-    for (int x=0; x<9; x++) {
-      for (int y=0; y<9; y++) {
+    for (int y=0; y<9; y++) {
+      for (int x=0; x<9; x++) {
         perlinC +=0.0001;
         fill(100, 50, 255-255*noise(perlinC+noise(x)+noise(y)));
         rect(44.4*x + 22.2, 44.4*y + 22.2, 44.4, 44.4);

@@ -69,6 +69,7 @@ void mousePressed() {
   if (inPlay && clickEnabled) {
     for (Tiles t : GM.tileList) {
       if (t.isMouseHovering() && t.type ==0) {
+        println("Tile -10 = " + (t.TN-10) + " that tile type: " + GM.tileList.get(t.TN-10).type);
         println("tile clicked");
         println("turn: " + TM.turn);
         t.type = TM.turn;

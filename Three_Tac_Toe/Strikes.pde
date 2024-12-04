@@ -19,7 +19,7 @@ class Strikes {
     if ((frameCount-getFrameCount)%180 == 179){
      inPlay = false;
      clickEnabled = true;
-     gameOver = false;
+     gameOver = true;
     }
   }
 }
