@@ -9,10 +9,9 @@ class ScoreManager {
   }
 
   void checkStrikes() {
-    ////println("check strikes called in round: " + TM.round);
     for (Tiles t : GM.tileList) {
 
-
+  //first checking if tile is unowned
       if (t.type != 0) {
 
         //checking if the tile is on a horizontal or vertical edge
@@ -26,7 +25,7 @@ class ScoreManager {
         } else {
           horizontaledge = false;
         }
-
+    //Checking tiles around selected tiles to see if there are 2 on OPPOSITE tile pairs. Special if conditions to prevent edge tiles from checking tiles that aren't on the board. Implementation log explains how pairs are detected.
         println("Checking tile at TN: " + (t.TN) + " |tile vertical: " + verticaledge + " | tile horizontal: " + horizontaledge);
         if (!horizontaledge && !verticaledge) {
           if (GM.tileList.get(t.TN-8).type == t.type && GM.tileList.get(t.TN+8).type == t.type) {
@@ -50,6 +49,8 @@ class ScoreManager {
     }
   }
 
+
+//function that's called if a strike is found. Turns clicking off and creates a new strike object.
   void strikeFound(PVector tempStartCoords, PVector tempEndCoords) {
     clickEnabled = false;
     strike = new Strikes(tempStartCoords, tempEndCoords);

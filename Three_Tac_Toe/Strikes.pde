@@ -18,6 +18,7 @@ class Strikes {
   void drawStrike(){
     strokeWeight(3);
     stroke(255,0,0);
+    //strike drawing animation using frameCount and getframe to count the number of frames since drawing the frames. Getting the difference from start coords and end coords and adding it to start coords over time to get the animation.
     line(startCoords.x, startCoords.y, startCoords.x + diffCoords.x*constrain(map(((frameCount-getFrame)%120),0,59,0,1),0,1), startCoords.y + diffCoords.y*constrain(map(((frameCount-getFrame)%120),0,59,0,1),0,1));
     if ((frameCount-getFrameCount)%120 == 119){
      inPlay = false;

@@ -47,7 +47,7 @@ void draw() {
     GM.displayPlayingGrid(); //grid in whcih player tokens appear
     image(tokenList[TM.turn-1], mouseX, mouseY);
     if (!clickEnabled) {
-      SM.strike.drawStrike(); //drawing a strike created in the score manager object.
+      SM.strike.drawStrike(); //drawing a strike created in the score manager object if click is disabled (which only happens when a strike is detected).
     }
   }
   if (gameOver) {
